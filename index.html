@@ -4,20 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MindBack.ai</title>
+
   <style>
-   
-  #tsparticles {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  body {
-    position: relative;
-    z-index: 1;
-  }
-
     body {
       margin: 0;
       background-color: #000;
@@ -25,34 +13,52 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      position: relative;
+      z-index: 1;
     }
+
+    #tsparticles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     img {
       max-width: 20%;
       height: auto;
+      z-index: 1;
     }
   </style>
 </head>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
-<script>
-tsParticles.load("tsparticles", {
-  fpsLimit: 30,
-  particles: {
-    number: { value: 25 },
-    color: { value: "#aaaaaa" },
-    size: { value: 1.5 },
-    move: { enable: true, speed: 0.3 },
-    links: {
-      enable: true,
-      distance: 120,
-      color: "#777777",
-      opacity: 0.15
-    }
-  }
-});
-</script>
+
 <body>
+
+  <!-- Background -->
   <div id="tsparticles"></div>
+
+  <!-- Content -->
   <img src="mindback_logo.jpg" alt="MindBack Logo" />
+
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("tsparticles", {
+      fpsLimit: 30,
+      particles: {
+        number: { value: 25 },
+        color: { value: "#aaaaaa" },
+        size: { value: 1.5 },
+        move: { enable: true, speed: 0.3 },
+        links: {
+          enable: true,
+          distance: 120,
+          color: "#777777",
+          opacity: 0.15
+        }
+      }
+    });
+  </script>
+
 </body>
 </html>
-<!-- Trigger rebuild -->
