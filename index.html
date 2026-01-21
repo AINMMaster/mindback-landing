@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-/* Debug9 */
+<!-- Debug10 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -12,19 +12,17 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      background: #000;          /* HIER ist der schwarze Hintergrund */
+      background: #000;
       overflow: hidden;
       font-family: system-ui, sans-serif;
     }
 
-    /* Particles Background */
-    #particles-bg {
+    #particles-js {
       position: fixed;
       inset: 0;
       z-index: 0;
     }
 
-    /* Content */
     .content {
       position: relative;
       z-index: 1;
@@ -44,53 +42,48 @@
 
 <body>
 
-  <!-- Background -->
-  <div id="particles-bg"></div>
+  <div id="particles-js"></div>
 
-  <!-- Foreground -->
   <div class="content">
     <img src="mindback_logo.jpg" alt="MindBack Logo">
   </div>
 
-  <!-- tsParticles -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <!-- particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <script>
-    window.addEventListener("load", () => {
-      tsParticles.load("particles-bg", {
-        fpsLimit: 30,
-        background: {
-          color: "transparent"
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 40,
+          density: { enable: false }
         },
-        particles: {
-          number: {
-            value: 30
-          },
-          color: {
-            value: "#ffffff"
-          },
-          size: {
-            value: 2
-          },
-          opacity: {
-            value: 0.8
-          },
-          links: {
-            enable: true,
-            distance: 140,
-            color: "#ffffff",
-            opacity: 0.3,
-            width: 1
-          },
-          move: {
-            enable: true,
-            speed: 0.6,
-            random: true,
-            straight: false
-          }
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 2 },
+        line_linked: {
+          enable: true,
+          distance: 140,
+          color: "#ffffff",
+          opacity: 0.3,
+          width: 1
         },
-        detectRetina: true
-      });
+        move: {
+          enable: true,
+          speed: 0.6,
+          random: true,
+          straight: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: false },
+          onclick: { enable: false }
+        }
+      },
+      retina_detect: true
     });
   </script>
 
