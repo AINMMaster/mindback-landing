@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+/* Debug9 */
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,21 +7,27 @@
   <title>MindBack.ai</title>
 
   <style>
-    /* --- Global Reset --- */
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
+      background: #000;          /* HIER ist der schwarze Hintergrund */
       overflow: hidden;
-      background: transparent; /* wichtig: NICHT schwarz */
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: system-ui, sans-serif;
     }
 
-    /* --- Content Layer --- */
+    /* Particles Background */
+    #particles-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Content */
     .content {
       position: relative;
-      z-index: 2;
+      z-index: 1;
       width: 100%;
       height: 100%;
       display: flex;
@@ -37,30 +44,24 @@
 
 <body>
 
-  <!-- Foreground Content -->
+  <!-- Background -->
+  <div id="particles-bg"></div>
+
+  <!-- Foreground -->
   <div class="content">
     <img src="mindback_logo.jpg" alt="MindBack Logo">
   </div>
 
-  <!-- tsParticles Library -->
+  <!-- tsParticles -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
 
-  <!-- tsParticles Init -->
   <script>
     window.addEventListener("load", () => {
-      tsParticles.load({
-        /* Canvas übernimmt Background */
-        fullScreen: {
-          enable: true,
-          zIndex: 0
-        },
-
-        background: {
-          color: "#000000"   // SCHWARZER Hintergrund hier
-        },
-
+      tsParticles.load("particles-bg", {
         fpsLimit: 30,
-
+        background: {
+          color: "transparent"
+        },
         particles: {
           number: {
             value: 30
@@ -88,7 +89,6 @@
             straight: false
           }
         },
-
         detectRetina: true
       });
     });
