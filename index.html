@@ -6,16 +6,18 @@
   <title>MindBack.ai</title>
 
   <style>
+    /* --- Global Reset --- */
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: transparent; /* WICHTIG */
-      font-family: system-ui, sans-serif;
+      background: transparent; /* wichtig: NICHT schwarz */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
+    /* --- Content Layer --- */
     .content {
       position: relative;
       z-index: 2;
@@ -35,23 +37,30 @@
 
 <body>
 
+  <!-- Foreground Content -->
   <div class="content">
     <img src="mindback_logo.jpg" alt="MindBack Logo">
   </div>
 
+  <!-- tsParticles Library -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
 
+  <!-- tsParticles Init -->
   <script>
     window.addEventListener("load", () => {
       tsParticles.load({
+        /* Canvas übernimmt Background */
         fullScreen: {
           enable: true,
-          zIndex: 1
+          zIndex: 0
         },
+
         background: {
-          color: "#000000"   // HIER ist jetzt der schwarze Hintergrund
+          color: "#000000"   // SCHWARZER Hintergrund hier
         },
+
         fpsLimit: 30,
+
         particles: {
           number: {
             value: 30
@@ -63,7 +72,7 @@
             value: 2
           },
           opacity: {
-            value: 0.7
+            value: 0.8
           },
           links: {
             enable: true,
@@ -79,6 +88,7 @@
             straight: false
           }
         },
+
         detectRetina: true
       });
     });
