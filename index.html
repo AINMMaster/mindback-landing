@@ -35,6 +35,8 @@
 
 <body>
 
+  <div id="tsparticles"></div>
+
   <div class="content">
     <img src="mindback_logo.jpg" alt="MindBack Logo">
   </div>
@@ -43,7 +45,7 @@
 
   <script>
     window.addEventListener("load", () => {
-      tsParticles.load({
+      tsParticles.load("tsparticles", {
         fullScreen: {
           enable: true,
           zIndex: 0
